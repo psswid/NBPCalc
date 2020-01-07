@@ -1,0 +1,21 @@
+{% block result %}
+
+    <table style="width:30%" id="calculation_table">
+        <tr>
+            <th>Kwota netto</th>
+            <th>+23% VAT</th>
+            <th>EUR</th>
+            <th>USD</th>
+        </tr>
+        {% if currency is defined %}
+        <tr>
+            <td>{{ currency.value }}</td>
+            <td>{{ currency.value + (currency.value * 0.23)}}</td>
+            {% for calculation in calculated %}
+            <td>{{ calculation }}</td>
+            {% endfor %}
+        </tr>
+        {% endif %}
+    </table>
+
+{% endblock %}
